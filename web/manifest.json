@@ -1,11 +1,11 @@
 {
-    "name": "portfolio",
-    "short_name": "portfolio",
+    "name": "Mahmud Ebne Zaman's Portfolio",
+    "short_name": "Portfolio",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#121212",
+    "theme_color": "#000000",
+    "description": "A professional portfolio showcasing my work as a mobile app developer specializing in Flutter.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
