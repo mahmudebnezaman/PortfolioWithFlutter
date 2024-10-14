@@ -3,6 +3,8 @@ import 'package:gap/gap.dart';
 import 'package:lottie/lottie.dart';
 import 'package:portfolio/core/constants/app_assets.dart';
 import 'package:portfolio/core/constants/app_colors.dart';
+import 'package:portfolio/core/constants/app_texts.dart';
+import 'package:portfolio/core/widgets/contact_infor_row.dart';
 import 'package:portfolio/core/widgets/large_screen_appbar.dart';
 
 class DesktopLayout extends StatefulWidget {
@@ -17,21 +19,28 @@ class _DesktopLayoutState extends State<DesktopLayout> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
-          child: Column(
-            children: <Widget>[
-              homeSection(context),
-              getInTouchSection(context),
-              const Divider(),
-              Text(
-                "Developed by -Mahmud",
-                style: Theme.of(context).textTheme.bodySmall,
+      body: Stack(
+        children: [
+          Image.asset(starsImage, height: MediaQuery.sizeOf(context).height, width: MediaQuery.sizeOf(context).width,fit: BoxFit.cover,),
+          SingleChildScrollView(
+            child: Padding(
+              padding:
+                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
+              child: Column(
+                children: <Widget>[
+                  homeSection(context),
+                  skillSection(context),
+                  getInTouchSection(context),
+                  const Divider(),
+                  Text(
+                    "Developed by -Mahmud",
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
@@ -92,12 +101,71 @@ class _DesktopLayoutState extends State<DesktopLayout> {
     );
   }
 
+  Widget skillSection(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          "Skills",
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
+        SizedBox(
+          width: MediaQuery.sizeOf(context).width *0.6,
+          child: Text(
+              "Skilled in Flutter development with a strong focus on building responsive and dynamic mobile apps. Proficient in integrating advanced UI/UX features and backend functionalities.",
+              style: Theme.of(context).textTheme.bodySmall, textAlign: TextAlign.center,),
+        ),
+      ],
+    );
+  }
+
   Row getInTouchSection(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Flexible(
           flex: 1,
-          child: Text("Contact"),
+          fit: FlexFit.loose,
+          child: Lottie.asset(coderAstronaut),
+        ),
+        Flexible(
+          flex: 1,
+          fit: FlexFit.loose,
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Gap(30),
+                Text(
+                  "Get in touch",
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+                const Gap(5),
+                ContactInfoRow(icon: phoneIcon, text: phone),
+                const Gap(5),
+                ContactInfoRow(icon: emailIcon, text: email),
+                const Gap(5),
+                ContactInfoRow(icon: addressIcon, text: address),
+                const Gap(5),
+                ContactInfoRow(
+                  icon: linkedInIcon,
+                  text: linkedInLink,
+                  url: linkedInLink,
+                ),
+                const Gap(5),
+                ContactInfoRow(
+                  icon: githubIcon,
+                  text: githubLink,
+                  url: githubLink,
+                ),
+                const Gap(5),
+                ContactInfoRow(
+                  icon: skypeIcon,
+                  text: skypeLink,
+                  url: skypeLink,
+                ),
+              ]),
         ),
       ],
     );
