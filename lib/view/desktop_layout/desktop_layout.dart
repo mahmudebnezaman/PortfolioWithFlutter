@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:lottie/lottie.dart';
 import 'package:portfolio/core/constants/app_assets.dart';
@@ -21,7 +22,12 @@ class _DesktopLayoutState extends State<DesktopLayout> {
       appBar: const CustomAppBar(),
       body: Stack(
         children: [
-          Image.asset(starsImage, height: MediaQuery.sizeOf(context).height, width: MediaQuery.sizeOf(context).width,fit: BoxFit.cover,),
+          Image.asset(
+            starsImage,
+            height: MediaQuery.sizeOf(context).height,
+            width: MediaQuery.sizeOf(context).width,
+            fit: BoxFit.cover,
+          ),
           SingleChildScrollView(
             child: Padding(
               padding:
@@ -109,10 +115,21 @@ class _DesktopLayoutState extends State<DesktopLayout> {
           style: Theme.of(context).textTheme.titleLarge,
         ),
         SizedBox(
-          width: MediaQuery.sizeOf(context).width *0.6,
+          width: MediaQuery.sizeOf(context).width * 0.6,
           child: Text(
-              "Skilled in Flutter development with a strong focus on building responsive and dynamic mobile apps. Proficient in integrating advanced UI/UX features and backend functionalities.",
-              style: Theme.of(context).textTheme.bodySmall, textAlign: TextAlign.center,),
+            "Skilled in Flutter development with a strong focus on building responsive and dynamic mobile apps. Proficient in integrating advanced UI/UX features and backend functionalities.",
+            style: Theme.of(context).textTheme.bodySmall,
+            textAlign: TextAlign.center,
+          ),
+        ),
+        ListView.builder(
+          shrinkWrap: true,
+          physics: NeverScrollableScrollPhysics(),
+          itemCount: skillsList.length,
+          itemBuilder: (context, index) => Card(
+
+            child: SvgPicture.asset(skillsList[index], height: MediaQuery.sizeOf(context).height*0.1,),
+          ),
         ),
       ],
     );
