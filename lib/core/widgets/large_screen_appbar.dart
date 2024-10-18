@@ -7,7 +7,8 @@ import 'package:portfolio/core/utils/utils.dart';
 import 'package:portfolio/core/widgets/build_nav_buttons.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({super.key});
+  final Function(String) onNavButtonPressed;
+  const CustomAppBar({super.key, required this.onNavButtonPressed});
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -25,16 +26,16 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               // Left side: Text buttons for navigation
               Row(
                 children: [
-                  buildNavButton(context, "Home"),
-                  buildNavButton(context, "About"),
-                  buildNavButton(context, "Skills"),
-                  buildNavButton(context, "Experience"),
-                  buildNavButton(context, "Projects"),
-                  buildNavButton(context, "Education"),
-                  buildNavButton(context, "Contact"),
+                  buildNavButton(context, "Home", () => onNavButtonPressed("Home")),
+                  buildNavButton(context, "About", () => onNavButtonPressed("About")),
+                  buildNavButton(context, "Skills", () => onNavButtonPressed("Skills")),
+                  buildNavButton(context, "Experience", () => onNavButtonPressed("Experience")),
+                  buildNavButton(context, "Projects", () => onNavButtonPressed("Projects")),
+                  buildNavButton(context, "Education", () => onNavButtonPressed("Education")),
+                  buildNavButton(context, "Contact", () => onNavButtonPressed("Contact")),
                   if (constraints.maxWidth > 640)
                   ElevatedButton(
-                      onPressed: () {}, child: const Text("Download CV")),
+                      onPressed:  () => launchUrlExternal(downloadCVLink), child: const Text("Download CV")),
                 ],
               ),
 

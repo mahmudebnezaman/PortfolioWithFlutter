@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Widget buildNavButton(BuildContext context, String text) {
+Widget buildNavButton(BuildContext context, String text, Function onPressed) {
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 0),
     child: TextButton(
@@ -9,7 +9,7 @@ Widget buildNavButton(BuildContext context, String text) {
         minimumSize: const Size(20, 20),
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
       ),
-      onPressed: () {},
+      onPressed: () => onPressed(),
       child: Text(
         text,
         style: const TextStyle(

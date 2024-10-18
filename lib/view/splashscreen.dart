@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 import 'package:portfolio/view/home.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -25,7 +24,7 @@ class SplashScreenState extends State<SplashScreen> {
 
   Future<void> _loadAssets() async {
     // Simulate asset loading (e.g., network images)
-    await Future.delayed(Duration(seconds: 3)); // Simulate image load
+    await Future.delayed(const Duration(seconds: 3)); // Simulate image load
   }
 
   @override
@@ -34,13 +33,13 @@ class SplashScreenState extends State<SplashScreen> {
       future: _loadAssets(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(), // Loader while assets are loading
           );
         } else if (snapshot.connectionState == ConnectionState.done) {
-          return AppHomePage(title: "Mahmud Ebne Zaman"); // Display your content after loading
+          return const AppHomePage(title: "Mahmud Ebne Zaman"); // Display your content after loading
         } else {
-          return Center(
+          return const Center(
             child: Text('Error loading assets'),
           );
         }

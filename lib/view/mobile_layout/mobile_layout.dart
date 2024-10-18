@@ -85,19 +85,19 @@ class _MobileLayoutState extends State<MobileLayout> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      buildNavButton(context, "Home"),
+                      buildNavButton(context, "Home", (){}),
                       const Gap(10), // Add space between buttons
-                      buildNavButton(context, "About"),
+                      buildNavButton(context, "About", (){}),
                       const Gap(10),
-                      buildNavButton(context, "Skills"),
+                      buildNavButton(context, "Skills", (){}),
                       const Gap(10),
-                      buildNavButton(context, "Experience"),
+                      buildNavButton(context, "Experience", (){}),
                       const Gap(10),
-                      buildNavButton(context, "Projects"),
+                      buildNavButton(context, "Projects", (){}),
                       const Gap(10),
-                      buildNavButton(context, "Education"),
+                      buildNavButton(context, "Education", (){}),
                       const Gap(10),
-                      buildNavButton(context, "Contact"),
+                      buildNavButton(context, "Contact", (){}),
                       const SizedBox(height: 20), // Spacing before the CV button
                       ElevatedButton(
                         onPressed: () {
