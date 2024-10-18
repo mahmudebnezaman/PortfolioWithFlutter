@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import 'package:lottie/lottie.dart';
 import 'package:portfolio/core/constants/app_assets.dart';
@@ -126,10 +126,7 @@ class _DesktopLayoutState extends State<DesktopLayout> {
           shrinkWrap: true,
           physics: NeverScrollableScrollPhysics(),
           itemCount: skillsList.length,
-          itemBuilder: (context, index) => Card(
-
-            child: SvgPicture.asset(skillsList[index], height: MediaQuery.sizeOf(context).height*0.1,),
-          ),
+          itemBuilder: (context, index) => SvgPicture.asset(skillsList[index], height: MediaQuery.sizeOf(context).height*0.1,),
         ),
       ],
     );

@@ -4,7 +4,7 @@
     "start_url": ".",
     "display": "standalone",
     "background_color": "#121212",
-    "theme_color": "#000000",
+    "theme_color": "#ffffff",
     "description": "A professional portfolio showcasing my work as a mobile app developer specializing in Flutter.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,

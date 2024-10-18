@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/view/desktop_layout/desktop_layout.dart';
 import 'package:portfolio/view/mobile_layout/mobile_layout.dart';
 
-import 'tablet_layout/tablet_layout.dart';
 
 class AppHomePage extends StatefulWidget {
   const AppHomePage({super.key, required this.title});
@@ -21,14 +20,13 @@ class _AppHomePageState extends State<AppHomePage> {
       builder: (context, constraints) {
         if (constraints.maxWidth < 600) {
           // Small Screen (Mobile)
-          return MobileLayout();
+          return const MobileLayout();
         }
         else {
           // Large Screen (Desktop)
-          return DesktopLayout();
+          return const DesktopLayout();
         }
       },
     );
-
   }
 }
