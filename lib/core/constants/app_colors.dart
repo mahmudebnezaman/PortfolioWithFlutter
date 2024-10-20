@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 Color seedColor = Colors.deepPurple;
 Color backgroundColor = Colors.black;
 Color appBarBackgroundColor = Colors.black;
-Color cardColor = Colors.grey.shade900;
+Color cardColor = const Color(0xFF212428);
+Color shadowColor = Colors.white60.withOpacity(0.2);
 
 // Primary text
 Color primaryTextColor = Colors.white;  // For headers, main content

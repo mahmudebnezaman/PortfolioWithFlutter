@@ -20,6 +20,7 @@ class _DesktopLayoutState extends State<DesktopLayout> {
 
   final GlobalKey _homeKey = GlobalKey();
   final GlobalKey _skillsKey = GlobalKey();
+  final GlobalKey _experience = GlobalKey();
   final GlobalKey _contactKey = GlobalKey();
 
   void scrollToSection(GlobalKey key) {
@@ -47,7 +48,7 @@ class _DesktopLayoutState extends State<DesktopLayout> {
       body: Stack(
         children: [
           Image.asset(
-            starsImage,
+            backgroundImage,
             height: MediaQuery.sizeOf(context).height,
             width: MediaQuery.sizeOf(context).width,
             fit: BoxFit.cover,
@@ -68,6 +69,12 @@ class _DesktopLayoutState extends State<DesktopLayout> {
                   Container(
                     key: _skillsKey,
                     child: skillSection(context),
+                  ),
+                  const Gap(100),
+                  // Experience Section
+                  Container(
+                    key: _experience,
+                    child: experienceSection(context),
                   ),
                   // Contact Section
                   Container(
@@ -172,13 +179,59 @@ class _DesktopLayoutState extends State<DesktopLayout> {
             runSpacing: 10.0,
             alignment: WrapAlignment.center,
             children: skillsList.map((skill) {
-              return Card(
-                child: SvgPicture.asset(
-                  skill,
-                  height: MediaQuery.sizeOf(context).height * 0.2, // Adjust height as needed
+              return SizedBox(
+                width: MediaQuery.sizeOf(context).width * 0.2,
+                child: Card(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                        SvgPicture.asset(
+                          skill.icon,
+                          height: MediaQuery.sizeOf(context).height * 0.2,
+                        ),
+                        const Gap(5),
+                        Text(skill.title, style: Theme.of(context).textTheme.titleSmall?.copyWith(color: Colors.white, fontSize: 14), textAlign: TextAlign.center),
+                        const Gap(3),
+                        Text(skill.description, style: Theme.of(context).textTheme.bodySmall, textAlign: TextAlign.center),
+                        const Gap(5),
+                      ],
+                    ),
+                  ),
                 ),
               );
             }).toList(),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget experienceSection(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top:8.0),
+      child: Column(
+        children: [
+          Text(
+            "Experience",
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
+          SizedBox(
+            width: MediaQuery.sizeOf(context).width * 0.5,
+            child: Text(
+              "Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work. -by Steve Jobs",
+              style: Theme.of(context).textTheme.bodySmall,
+              textAlign: TextAlign.center,
+            ),
+          ),
+          const Gap(15),
+          const Card(
+            child: ListTile(
+              leading: Icon(Icons.person),
+              title: Text("Compnay"),
+              subtitle: Text("2024-"),
+              trailing: Icon(Icons.more_vert),
+            ),
           )
         ],
       ),

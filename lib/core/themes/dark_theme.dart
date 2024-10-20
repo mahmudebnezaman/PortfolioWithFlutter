@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/constants/app_colors.dart';
 
-ThemeData darkTheme (){
+ThemeData darkTheme() {
   return ThemeData(
     colorScheme: ColorScheme.fromSeed(
       seedColor: seedColor,
@@ -12,8 +12,15 @@ ThemeData darkTheme (){
     appBarTheme: AppBarTheme(
       backgroundColor: appBarBackgroundColor,
     ),
-    cardColor: cardColor,
-      fontFamily: 'Sora',
+    cardTheme: CardTheme(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12.0),
+      ),
+      elevation: 4,
+      color: cardColor,
+      shadowColor: shadowColor,
+    ),
+    fontFamily: 'Sora',
     textTheme: TextTheme(
       displayLarge: TextStyle(
         fontSize: 57,
@@ -91,6 +98,5 @@ ThemeData darkTheme (){
         color: tertiaryTextColor,
       ),
     ),
-
   );
 }
