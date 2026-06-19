@@ -150,4 +150,17 @@ const List<Project> projectsList = [
     ],
     techStack: ["Flutter", "Dart", "Firebase", "REST API", "Stripe"],
   ),
+  Project(
+    title: "SoundBubble",
+    subtitle: "Android floating volume control — Published on Google Play",
+    highlights: [
+      "Built and published a native Android app on Google Play as a solo personal project.",
+      "Implemented a floating bubble overlay using a foreground service, visible over all apps and the lock screen.",
+      "Designed fully customizable bubble (size, opacity, 10 color presets, circle/pill shape) with 5 independent audio stream sliders.",
+      "Integrated ringer mode switching (Normal / Vibrate / Silent) with DND permission handling and auto-start on device boot.",
+      "Applied Jetpack Compose + Material Design 3, Dagger Hilt for DI, and DataStore for persistent settings.",
+    ],
+    techStack: ["Kotlin", "Jetpack Compose", "Dagger Hilt", "DataStore", "Material Design 3"],
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.codezamlabs.soundbubble",
+  ),
 ];

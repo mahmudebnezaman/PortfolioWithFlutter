@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/core/constants/app_colors.dart';
 import 'package:portfolio/data/model/project_model.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProjectCard extends StatefulWidget {
   final Project project;
@@ -141,6 +142,36 @@ class _ProjectCardState extends State<ProjectCard> {
                       ),
                     );
                   }).toList(),
+                ),
+              ],
+              if (widget.project.playStoreUrl != null) ...[
+                const Gap(12),
+                Divider(height: 1, color: Colors.white.withValues(alpha: 0.06)),
+                const Gap(10),
+                GestureDetector(
+                  onTap: () => launchUrl(
+                    Uri.parse(widget.project.playStoreUrl!),
+                    mode: LaunchMode.externalApplication,
+                  ),
+                  child: MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(Icons.shop_outlined, size: 14, color: seedColorCyan),
+                        const Gap(6),
+                        Text(
+                          "View on Google Play",
+                          style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                                color: seedColorCyan,
+                                fontWeight: FontWeight.w600,
+                                decoration: TextDecoration.underline,
+                                decorationColor: seedColorCyan,
+                              ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ],

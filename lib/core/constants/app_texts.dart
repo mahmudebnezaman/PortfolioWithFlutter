@@ -14,7 +14,7 @@ const String skillsSectionDescription =
 const String experienceSectionDescription =
     "Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work. -by Steve Jobs";
 const String projectsSectionDescription =
-    "A selection of professional and personal projects, showcasing real-world problem solving across ISP management, business productivity, education systems, and travel.";
+    "A selection of professional and personal projects, showcasing real-world problem solving across ISP management, business productivity, education systems, travel, and published Android utilities.";
 const String educationSectionDescription =
     "Academic background with a strong foundation in computer science and engineering.";
 
